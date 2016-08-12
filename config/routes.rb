@@ -1,4 +1,19 @@
 Expenses::Application.routes.draw do
+  get "calendar/index"
+  get "calendar/data"
+  get "calendar/db_action"
+  get "orderer/index"
+  get "orderer/data"
+  get "orderer/db_action"
+  get "agreement/index"
+  get "agreement/data"
+  get "agreement/db_action"
+  get "work/index"
+  get "work/data"
+  get "work/db_action"
+  get "staff/index"
+  get "staff/data"
+  get "staff/db_action"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
