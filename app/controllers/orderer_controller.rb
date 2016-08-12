@@ -3,15 +3,15 @@ class OrdererController < ApplicationController
   end
 
   def data
-    users = User.all
+    orders = Order.all
     
     render :json => {
-      :total_count => users.length,
+      :total_count => orders.length,
       :pos => 0,
-      :rows => users.map do |user|
+      :rows => orders.map do |order|
         {
-          :id => user.id,
-          :data => [user.first_name, user.last_name, user.phone]
+          :id => order.id,
+          :data => [order.name]
         }
       end
     }
@@ -19,27 +19,25 @@ class OrdererController < ApplicationController
 
   def db_action
     @mode = params["!nativeeditor_status"]
-    first_name = params["c0"]
-    last_name = params['c1']
-    phone = params['c2']
+    name = params["c0"]
+
     
     @id = params["gr_id"]
     
     case @mode
     when "inserted"
-      user = User.create :first_name => first_name, :last_name => last_name, :phone => phone
-      @tid = user.id
+      order = order.create :name => name
+      @tid = order.id
       
     when "deleted"
-      User.find(@id).destroy
+      order.find(@id).destroy
       @tid = @id 
       
     when "updated"
-      user = User.find(@id)
-      user.first_name = first_name
-      user.last_name = last_name
-      user.phone = phone
-	user.save
+      order = Order.find(@id)
+      order.name = name
+
+	order.save
       @tid = @id
     end
   end

@@ -3,15 +3,15 @@ class CalendarController < ApplicationController
   end
 
   def data
-    users = User.all
+    calendars = Calendar.all
     
     render :json => {
-      :total_count => users.length,
+      :total_count => calendars.length,
       :pos => 0,
-      :rows => users.map do |user|
+      :rows => calendars.map do |calendar|
         {
-          :id => user.id,
-          :data => [user.first_name, user.last_name, user.phone]
+          :id => calendar.id,
+          :data => [calendar.date, calendar.year, calendar.month, calendar.day, calendar.holiday]
         }
       end
     }
@@ -19,27 +19,30 @@ class CalendarController < ApplicationController
 
   def db_action
     @mode = params["!nativeeditor_status"]
-    first_name = params["c0"]
-    last_name = params['c1']
-    phone = params['c2']
-    
+    date = params["c0"]
+    year = params['c1']
+    month = params['c2']
+    day = params['c3']
+    holiday = params['c4']    
     @id = params["gr_id"]
     
     case @mode
     when "inserted"
-      user = User.create :first_name => first_name, :last_name => last_name, :phone => phone
-      @tid = user.id
+      calendar = calendar.create :date => date, :year => year, :month => month, :day => day, :holiday => holiday
+      @tid = calendar.id
       
     when "deleted"
-      User.find(@id).destroy
+      calendar.find(@id).destroy
       @tid = @id 
       
     when "updated"
-      user = User.find(@id)
-      user.first_name = first_name
-      user.last_name = last_name
-      user.phone = phone
-	user.save
+      calendar = Calendar.find(@id)
+      calendar.date = date
+      calendar.year = year
+      calendar.month = month
+      calendar.day = day
+      calendar.holiday = holiday
+	calendar.save
       @tid = @id
     end
   end

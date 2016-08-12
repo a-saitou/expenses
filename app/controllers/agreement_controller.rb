@@ -3,15 +3,15 @@ class AgreementController < ApplicationController
   end
 
   def data
-    users = User.all
+    agreements = Agreement.all
     
     render :json => {
-      :total_count => users.length,
+      :total_count => agreements.length,
       :pos => 0,
-      :rows => users.map do |user|
+      :rows => agreements.map do |agreement|
         {
-          :id => user.id,
-          :data => [user.first_name, user.last_name, user.phone]
+          :id => agreement.id,
+          :data => [agreement.item_name, agreement.number, agreement.constraction_date, agreement.completion_date, agreement.orderer_id]
         }
       end
     }
@@ -19,27 +19,30 @@ class AgreementController < ApplicationController
 
   def db_action
     @mode = params["!nativeeditor_status"]
-    first_name = params["c0"]
-    last_name = params['c1']
-    phone = params['c2']
-    
+    item_name = params["c0"]
+    number = params['c1']
+    constraction_date = params['c2']
+    completion_date = params['c3']
+    orderer_id = params['c4']   
     @id = params["gr_id"]
     
     case @mode
     when "inserted"
-      user = User.create :first_name => first_name, :last_name => last_name, :phone => phone
-      @tid = user.id
+      agreement = agreement.create :item_name => item_name, :number => number, :constraction_date => constraction_date, :completion_date=> completion_date, :orderer_id => orderer_id
+      @tid = agreement.id
       
     when "deleted"
-      User.find(@id).destroy
+      agreement.find(@id).destroy
       @tid = @id 
       
     when "updated"
-      user = User.find(@id)
-      user.first_name = first_name
-      user.last_name = last_name
-      user.phone = phone
-	user.save
+      agreement = Agreement.find(@id)
+      agreement.item_name = item_name
+      agreement.number = number
+      agreement.constraction_date = constraction_date
+      agreement.completion_date = completion_date
+      agreement.orderer_id = orderer_id    
+	agreement.save
       @tid = @id
     end
   end
