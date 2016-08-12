@@ -51,3 +51,4 @@ class StaffController < ApplicationController
       @tid = @id
     end
   end
+end
