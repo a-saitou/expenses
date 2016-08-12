@@ -11,54 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160812070055) do
-
-  create_table "agreements", force: true do |t|
-    t.string   "name"
-    t.integer  "code"
-    t.integer  "orderer_id"
-    t.time     "constraction_date"
-    t.time     "complketion_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "calendars", force: true do |t|
-    t.date     "hiduke"
-    t.integer  "year"
-    t.integer  "month"
-    t.integer  "day"
-    t.boolean  "holiday"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "orderers", force: true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "staffs", force: true do |t|
-    t.string   "name"
-    t.string   "office"
-    t.integer  "order"
-    t.decimal  "wage"
-    t.date     "birthday"
-    t.date     "hire_date"
-    t.date     "leaving_date"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "works", force: true do |t|
-    t.integer  "calendar"
-    t.integer  "staff_id"
-    t.integer  "agreement_id"
-    t.time     "start_time"
-    t.time     "end_time"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
