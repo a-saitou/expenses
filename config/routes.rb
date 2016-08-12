@@ -14,6 +14,10 @@ Expenses::Application.routes.draw do
   get "staff/index"
   get "staff/data"
   get "staff/db_action"
+
+  match "staff/data", :to => "admin#data", :as => "data", :via => 'get'
+  match "staff/db_action", :to => "admin#db_action", :as => "db_action", :via => 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
