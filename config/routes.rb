@@ -1,7 +1,8 @@
 Expenses::Application.routes.draw do
   get 'home/index'
   root :to => 'home#index'
-#  match "home/data", => "home#data", => "data", => "get"
+  match "home/data", => "home#data", => "data", => "get"
+  match "home/db_action", :to => "home#db_action", :as => "db_action", :via => "post"
   get "calendar/index"
   get "orderer/index"
   get "agreement/index"
