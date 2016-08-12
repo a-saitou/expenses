@@ -1,9 +1,9 @@
 class CreateWorks < ActiveRecord::Migration
   def change
     create_table :works do |t|
-      t.intger         :calendar
-      t.referenses	   :staff
-      t.referenses     :agreement
+      t.integer         :calendar
+      t.integer	     :staff_id
+      t.integer     :agreement_id
       t.time         :start_time
       t.time         :end_time
       

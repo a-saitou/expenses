@@ -3,7 +3,7 @@ class CreateAgreements < ActiveRecord::Migration
     create_table :agreements do |t|
       t.string       :name
       t.integer      :code
-      t.refereses    :orderer
+      t.integer     :orderer_id
       t.time         :constraction_date
       t.time         :complketion_date
       t.timestamps
