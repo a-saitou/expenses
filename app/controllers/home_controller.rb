@@ -1,7 +1,7 @@
 class HomeController < ApplicationController
   def index
   end
-  def data
+  def home_data
    works = Work.all
 
    render :json => works.map {|work| {
@@ -11,7 +11,7 @@ class HomeController < ApplicationController
               :text => work.note
           }}
    end
-   def db_action
+   def home_db_action
    	mode = params["!nativeeditor_status"]
    	id = params["id"]
    	start_date = params["start_date"]

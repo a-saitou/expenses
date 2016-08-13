@@ -2,7 +2,7 @@ class OrdererController < ApplicationController
   def index
   end
 
-  def data
+  def order_data
     orders = Order.all
     
     render :json => {
@@ -17,7 +17,7 @@ class OrdererController < ApplicationController
     }
   end
 
-  def db_action
+  def order_db_action
     @mode = params["!nativeeditor_status"]
     name = params["c0"]
 

@@ -3,18 +3,28 @@ Expenses::Application.routes.draw do
   get 'home/index'
   root :to => 'home#index'
 
-  match "home/data", :to => "home#data", :as => "data", :via => "get"
-  match "home/db_action", :to => "home#db_action", :as => "db_action", :via => "post"
+  match "home/data", :to => "home#data", :as => "home_data", :via => "get"
+  match "home/db_action", :to => "home#db_action", :as => "home_db_action", :via => "post"
 
- get "calendar/index"
+  get "calendar/index"
+  match "calendar/data", :to => "calendar#data", :as => "calendar_data", :via => 'get'
+  match "calendar/db_action", :to => "calendar#db_action", :as => "calendar_ddb_action", :via => 'get'
+
   get "orderer/index"
+  match "orderer/data", :to => "orderer#data", :as => "orderer_data", :via => 'get'
+  match "orderer/db_action", :to => "orderer#db_action", :as => "orderer_ddb_action", :via => 'get'
+
   get "agreement/index"
+  match "agreement/data", :to => "agreement#data", :as => "agreement_data", :via => 'get'
+  match "agreement/db_action", :to => "agreement#db_action", :as => "agreement_ddb_action", :via => 'get'
+
   get "work/index"
+  match "work/data", :to => "work#data", :as => "work_data", :via => 'get'
+  match "work/db_action", :to => "work#db_action", :as => "work_ddb_action", :via => 'get'
 
   get "staff/index"
-
-#  match "staff/data", :to => "admin#data", :as => "data", :via => 'get'
-#  match "staff/db_action", :to => "admin#db_action", :as => "db_action", :via => 'get'
+  match "staff/data", :to => "staff#data", :as => "staff_data", :via => 'get'
+  match "staff/db_action", :to => "staff#db_action", :as => "staff_ddb_action", :via => 'get'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

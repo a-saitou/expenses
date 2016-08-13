@@ -2,7 +2,7 @@ class CalendarController < ApplicationController
   def index
   end
 
-  def data
+  def calendar_data
     calendars = Calendar.all
     
     render :json => {
@@ -17,7 +17,7 @@ class CalendarController < ApplicationController
     }
   end
 
-  def db_action
+  def calendar_db_action
     @mode = params["!nativeeditor_status"]
     date = params["c0"]
     year = params['c1']

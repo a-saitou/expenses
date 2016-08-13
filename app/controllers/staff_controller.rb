@@ -2,7 +2,7 @@ class StaffController < ApplicationController
   def index
   end
 
-  def data
+  def staff_data
     staffs = Staff.all
     
     render :json => {
@@ -17,7 +17,7 @@ class StaffController < ApplicationController
     }
   end
 
-  def db_action
+  def staffdb_action
     @mode = params["!nativeeditor_status"]
     name = params["c0"]
     office = params['c1']

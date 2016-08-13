@@ -1,2 +1,20 @@
-<h1>Work#index</h1>
-<p>Find me in app/views/work/index.html.erb</p>
+<div id="grid_here" style="width: 600px; height: 400px;"></div>
+
+<input type="button" value="Add" onclick="grid.addRow(grid.uid(),'new staff')" />
+<input type="button" value="Delete" onclick="grid.deleteSelectedRows()" />
+
+<script type="text/javascript" charset="UTF-8">
+	var grid = new dhtmlXGridObject("grid_here");
+	grid.setImagePath("assets/imgs/");
+	grid.setHeader("work.date, work.stff_id,work.agreement_id,work.start_time, work.end_time,work.work_time, 
+            work.over_time, work.late_night_over_time, work.paid_holiday,work.note");
+	grid.attachHeader("#text_filter,#text_filter,#text_filter");
+	grid.setColSorting("str,str,str");
+	grid.setInitWidths("100,100,*");
+	grid.setSkin("dhx_skyblue");
+	grid.init();
+
+	grid.load("<%= data_path %>", "json");
+	dp = new dataProcessor("<%= db_action_path %>");
+	dp.init(grid);
+</script>
