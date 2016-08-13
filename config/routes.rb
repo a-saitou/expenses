@@ -6,23 +6,28 @@ Expenses::Application.routes.draw do
   match "home/data", :to => "home#data", :as => "home_data", :via => "get"
   match "home/db_action", :to => "home#db_action", :as => "home_db_action", :via => "post"
 
-  get 'calendar/index'
+  #get 'calendar/index'
+  match "calendar/data", :to => "calendar#index", :as => "calendar_data", :via => 'get'  
   match "calendar/data", :to => "calendar#data", :as => "calendar_data", :via => 'get'
   match "calendar/db_action", :to => "calendar#db_action", :as => "calendar_db_action", :via => 'get'
 
-  get 'orderer/index'
+  #get 'orderer/index'
+  match "orderer/data", :to => "orderer#index", :as => "orderer_index", :via => 'get'  
   match "orderer/data", :to => "orderer#data", :as => "orderer_data", :via => 'get'
   match "orderer/db_action", :to => "orderer#db_action", :as => "orderer_db_action", :via => 'get'
 
-  get 'agreement/index'
+  #get 'agreement/index'
+   match "agreement/data", :to => "agreement#index", :as => "agreement_indx", :via => 'get' 
   match "agreement/data", :to => "agreement#data", :as => "agreement_data", :via => 'get'
   match "agreement/db_action", :to => "agreement#db_action", :as => "agreement_db_action", :via => 'get'
 
   get 'work/index'
+  match "work/data", :to => "work#index", :as => "work_index", :via => 'get'  
   match "work/data", :to => "work#data", :as => "work_data", :via => 'get'
   match "work/db_action", :to => "work#db_action", :as => "work_db_action", :via => 'get'
 
-  get 'staff/index'
+  #get 'staff/index'
+  match "staff/index", :to => "staff#index", :as => "staff_index", :via => 'get'  
   match "staff/data", :to => "staff#data", :as => "staff_data", :via => 'get'
   match "staff/db_action", :to => "staff#db_action", :as => "staff_db_action", :via => 'get'
 

@@ -26,7 +26,7 @@ class OrdererController < ApplicationController
     
     case @mode
     when "inserted"
-      order = order.create :name => name,:yomi > yomi
+      order = order.create :name => name,:yomi => yomi
       @tid = order.id
       
     when "deleted"
