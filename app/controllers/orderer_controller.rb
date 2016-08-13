@@ -11,7 +11,7 @@ class OrdererController < ApplicationController
       :rows => orders.map do |order|
         {
           :id => order.id,
-          :data => [order.name]
+          :data => [order.name,order.yomi]
         }
       end
     }
@@ -26,7 +26,7 @@ class OrdererController < ApplicationController
     
     case @mode
     when "inserted"
-      order = order.create :name => name
+      order = order.create :name => name,:yomi > yomi
       @tid = order.id
       
     when "deleted"
@@ -36,7 +36,7 @@ class OrdererController < ApplicationController
     when "updated"
       order = Order.find(@id)
       order.name = name
-
+      order.yomi = yomi
 	order.save
       @tid = @id
     end

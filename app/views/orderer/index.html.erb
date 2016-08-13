@@ -6,10 +6,10 @@
 <script type="text/javascript" charset="UTF-8">
 	var grid = new dhtmlXGridObject("grid_here");
 	grid.setImagePath("assets/imgs/");
-	grid.setHeader("name");
-	grid.attachHeader("#text_filter");
-	grid.setColSorting("str");
-	grid.setInitWidths("300");
+	grid.setHeader("name,yomi");
+	grid.attachHeader("#text_filter,#text_filter");
+	grid.setColSorting("str,str");
+	grid.setInitWidths("300,300");
 	grid.setSkin("dhx_skyblue");
 	grid.init();
 
