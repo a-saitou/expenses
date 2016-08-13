@@ -13,7 +13,7 @@
 
 ActiveRecord::Schema.define(version: 20160812070055) do
 
-  create_table "agreements", force: true do |t|
+  create_table "agreements", force: :cascade do |t|
     t.string   "name"
     t.string   "abbreviation"
     t.integer  "code"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20160812070055) do
     t.datetime "updated_at"
   end
 
-  create_table "calendars", force: true do |t|
+  create_table "calendars", force: :cascade do |t|
     t.date     "hiduke"
     t.integer  "year"
     t.integer  "month"
@@ -34,13 +34,14 @@ ActiveRecord::Schema.define(version: 20160812070055) do
     t.datetime "updated_at"
   end
 
-  create_table "orderers", force: true do |t|
+  create_table "orderers", force: :cascade do |t|
     t.string   "name"
+    t.string   "yomi"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "staffs", force: true do |t|
+  create_table "staffs", force: :cascade do |t|
     t.string   "name"
     t.string   "office"
     t.integer  "order"
@@ -52,7 +53,7 @@ ActiveRecord::Schema.define(version: 20160812070055) do
     t.datetime "updated_at"
   end
 
-  create_table "works", force: true do |t|
+  create_table "works", force: :cascade do |t|
     t.integer  "calendar_id"
     t.integer  "staff_id"
     t.integer  "agreement_id"

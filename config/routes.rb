@@ -7,7 +7,7 @@ Expenses::Application.routes.draw do
   match "home/db_action", :to => "home#db_action", :as => "home_db_action", :via => "post"
 
   #get 'calendar/index'
-  match "calendar/index", :to => "calendar#index", :as => "calendar_data", :via => 'get'  
+  match "calendar/index", :to => "calendar#index", :as => "calendar_index", :via => 'get'  
   match "calendar/data", :to => "calendar#data", :as => "calendar_data", :via => 'get'
   match "calendar/db_action", :to => "calendar#db_action", :as => "calendar_db_action", :via => 'get'
 
@@ -17,7 +17,7 @@ Expenses::Application.routes.draw do
   match "orderer/db_action", :to => "orderer#db_action", :as => "orderer_db_action", :via => 'get'
 
   #get 'agreement/index'
-   match "agreement/index", :to => "agreement#index", :as => "agreement_indx", :via => 'get' 
+   match "agreement/index", :to => "agreement#index", :as => "agreement_index", :via => 'get' 
   match "agreement/data", :to => "agreement#data", :as => "agreement_data", :via => 'get'
   match "agreement/db_action", :to => "agreement#db_action", :as => "agreement_db_action", :via => 'get'
 
