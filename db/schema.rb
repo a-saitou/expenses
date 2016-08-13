@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160812070055) do
 
   create_table "agreements", force: true do |t|
     t.string   "name"
+    t.string   "abbreviation"
     t.integer  "code"
     t.integer  "orderer_id"
     t.time     "constraction_date"

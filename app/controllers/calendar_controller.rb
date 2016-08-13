@@ -11,7 +11,7 @@ class CalendarController < ApplicationController
       :rows => calendars.map do |calendar|
         {
           :id => calendar.id,
-          :data => [calendar.date, calendar.year, calendar.month, calendar.day, calendar.holiday]
+          :data => [calendar.hiduke, calendar.year, calendar.month, calendar.day, calendar.holiday]
         }
       end
     }
@@ -19,7 +19,7 @@ class CalendarController < ApplicationController
 
   def db_action
     @mode = params["!nativeeditor_status"]
-    date = params["c0"]
+    hiduke = params["c0"]
     year = params['c1']
     month = params['c2']
     day = params['c3']
@@ -28,7 +28,7 @@ class CalendarController < ApplicationController
     
     case @mode
     when "inserted"
-      calendar = calendar.create :date => date, :year => year, :month => month, :day => day, :holiday => holiday
+      calendar = calendar.create :hiduke => hiduke, :year => year, :month => month, :day => day, :holiday => holiday
       @tid = calendar.id
       
     when "deleted"
@@ -37,7 +37,7 @@ class CalendarController < ApplicationController
       
     when "updated"
       calendar = Calendar.find(@id)
-      calendar.date = date
+      calendar.hiduke = hiduke
       calendar.year = year
       calendar.month = month
       calendar.day = day
