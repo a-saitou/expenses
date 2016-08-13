@@ -13,7 +13,7 @@
 	grid.setSkin("dhx_skyblue");
 	grid.init();
 
-	grid.load("<%= data_path %>", "json");
-	dp = new dataProcessor("<%= db_action_path %>");
+	grid.load("<%= staff_data_path %>", "json");
+	dp = new dataProcessor("<%= staff_db_action_path %>");
 	dp.init(grid);
 </script>

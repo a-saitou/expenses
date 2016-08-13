@@ -2,7 +2,7 @@ class AgreementController < ApplicationController
   def index
   end
 
-  def agreement_data
+  def data
     agreements = Agreement.all
     
     render :json => {
@@ -17,7 +17,7 @@ class AgreementController < ApplicationController
     }
   end
 
-  def agreement_db_action
+  def db_action
     @mode = params["!nativeeditor_status"]
     item_name = params["c0"]
     number = params['c1']

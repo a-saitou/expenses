@@ -1,6 +1,6 @@
 <div id="grid_here" style="width: 600px; height: 400px;"></div>
 
-<input type="button" value="Add" onclick="grid.addRow(grid.uid(),'new staff')" />
+<input type="button" value="Add" onclick="grid.addRow(grid.uid(),'new orderer')" />
 <input type="button" value="Delete" onclick="grid.deleteSelectedRows()" />
 
 <script type="text/javascript" charset="UTF-8">
@@ -13,8 +13,8 @@
 	grid.setSkin("dhx_skyblue");
 	grid.init();
 
-	grid.load("<%= data_path %>", "json");
-	dp = new dataProcessor("<%= db_action_path %>");
+	grid.load("<%= orderer_data_path %>", "json");
+	dp = new dataProcessor("<%= orderer_db_action_path %>");
 	dp.init(grid);
 </script>
 
