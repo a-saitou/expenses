@@ -11,7 +11,7 @@ class AgreementController < ApplicationController
       :rows => agreements.map do |agreement|
         {
           :id => agreement.id,
-          :data => [agreement.name, agreement.abbreviation,agreement.code, agreement.constraction_date, agreement.completion_date, agreement.orderer_id,orderer.name]
+          :data => [agreement.name, agreement.abbreviation,agreement.code, agreement.constraction_date, agreement.completion_date, agreement.orderer_id,agreement.orderer.name]
         }
       end
     }
