@@ -11,7 +11,7 @@ class AgreementController < ApplicationController
       :rows => agreements.map do |agreement|
         {
           :id => agreement.id,
-          :data => [agreement.name, agreement.abbreviation,agreement.number, agreement.constraction_date, agreement.completion_date, agreement.orderer_id]
+          :data => [agreement.name, agreement.abbreviation,agreement.code, agreement.constraction_date, agreement.completion_date, agreement.orderer_id]
         }
       end
     }
@@ -21,7 +21,7 @@ class AgreementController < ApplicationController
     @mode = params["!nativeeditor_status"]
     name = params["c0"]
     abbreviation = params['c1']
-    number = params['c2']
+    code = params['c2']
     constraction_date = params['c3']
     completion_date = params['c4']
     orderer_id = params['c5']   
@@ -29,7 +29,7 @@ class AgreementController < ApplicationController
     
     case @mode
     when "inserted"
-      agreement = agreement.create :name => name, :abbreviation => abbreviation,:number => number, :constraction_date => constraction_date, :completion_date=> completion_date, :orderer_id => orderer_id
+      agreement = agreement.create :name => name, :abbreviation => abbreviation,:code => code, :constraction_date => constraction_date, :completion_date=> completion_date, :orderer_id => orderer_id
       @tid = agreement.id
       
     when "deleted"
@@ -40,7 +40,7 @@ class AgreementController < ApplicationController
       agreement = Agreement.find(@id)
       agreement.name = name
       agreement.abbreviation = abbreviation
-      agreement.number = number
+      agreement.code = code
       agreement.constraction_date = constraction_date
       agreement.completion_date = completion_date
       agreement.orderer_id = orderer_id    
