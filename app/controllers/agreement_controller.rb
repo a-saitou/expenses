@@ -11,7 +11,7 @@ class AgreementController < ApplicationController
       :rows => agreements.map do |agreement|
         {
           :id => agreement.id,
-          :data => [agreement.name, agreement.abbreviation,agreement.code, agreement.constraction_date, agreement.completion_date, agreement.orderer_id]
+          :data => [agreement.name, agreement.abbreviation,agreement.code, agreement.constraction_date, agreement.completion_date, agreement.orderer_id,orderer.name]
         }
       end
     }
@@ -25,6 +25,7 @@ class AgreementController < ApplicationController
     constraction_date = params['c3']
     completion_date = params['c4']
     orderer_id = params['c5']   
+    orderer_name = params['c6']      
     @id = params["gr_id"]
     
     case @mode
