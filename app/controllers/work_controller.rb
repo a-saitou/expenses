@@ -11,7 +11,7 @@ class WorkController < ApplicationController
       :rows => works.map do |work|
         {
           :id => work.id,
-          :data => [work.date, work.stff_id,work.agreement_id,work.start_time, work.end_time,work.work_time, 
+          :data => [work.date, work.stff_id,work.staff.name,work.agreement_id,work.agreement.name,work.start_time, work.end_time,work.work_time, 
             work.over_time, work.late_night_over_time, work.paid_holiday,work.note]
         }
       end
