@@ -21,7 +21,7 @@ class WorkController < ApplicationController
   def work_db_action
     @mode = params["!nativeeditor_status"]
     date = params["c0"]
-    stff_id = params['c1']
+    staff_id = params['c1']
     agreement_id = params['c2']    
     start_time = params['c3']
     end_time = params['c4']
