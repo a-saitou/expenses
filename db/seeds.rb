@@ -393,7 +393,6 @@ Orderer.create(name: 'やすのｽﾍﾟｰｽ',yomi: 'やすのすぽーつ')
 Orderer.create(name: '柳商事',yomi: 'やなぎすいさん')
 Orderer.create(name: '和幸建設',yomi: 'わこうけんせつ')
 Orderer.create(name: '渡辺博明',yomi: 'わたなべひろあき')
-<<<<<<< HEAD
 Orderer.create(name: '山根殻',yomi: 'やまねつよし')
 Orderer.create(name: 'アクティオ',yomi: 'あくてぃお')
 Orderer.create(name: '清風園',yomi: 'せいふうえん')
@@ -549,5 +548,3 @@ Agreement.create(abbreviation: '勝地ダム',code: 3927)
 Agreement.create(abbreviation: '八雲中学',code: 3928)
 Agreement.create(abbreviation: '松江木次配水管',code: 3929)
 Agreement.create(abbreviation: '沖田病院・沖田邸',code: 3930)
-
->>>>>>> cace809b6488683bc41630456d9b4a34c85be9d7
