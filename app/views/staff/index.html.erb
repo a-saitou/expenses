@@ -2,7 +2,10 @@
 
 <input type="button" value="Add" onclick="grid.addRow(grid.uid(),'new staff')" />
 <input type="button" value="Delete" onclick="grid.deleteSelectedRows()" />
-
+<input type="button" value="Update" onclick="grid.sendData()" />
+<!--<p><a href="javascript:void(0)" onclick="myGrid.addRow((new Date()).valueOf(),[0,'','','',false,'na',false,''],myGrid.getRowIndex(myGrid.getSelectedId()))">Add row</a></p>-->
+<!--<p><a href="javascript:void(0)" onclick="myGrid.deleteSelectedItem()">Remove Selected Row</a></p> -->
+<!--<input type="button" name="some_name" value="update" onclick="myDataProcessor.sendData();"> -->
 <script type="text/javascript" charset="UTF-8">
 	var grid = new dhtmlXGridObject("grid_here");
 	grid.setImagePath("assets/imgs/");
