@@ -2,7 +2,7 @@ class WorkController < ApplicationController
   def index
   end
 
-  def work_data
+  def data
     works = Work.all
     
     render :json => {
@@ -18,7 +18,7 @@ class WorkController < ApplicationController
     }
   end
 
-  def work_db_action
+  def db_action
     @mode = params["!nativeeditor_status"]
     date = params["c0"]
     staff_id = params['c1']

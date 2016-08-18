@@ -482,3 +482,4 @@ Agreement.create(abbreviation: '勝地ダム',code: 3927)
 Agreement.create(abbreviation: '八雲中学',code: 3928)
 Agreement.create(abbreviation: '松江木次配水管',code: 3929)
 Agreement.create(abbreviation: '沖田病院・沖田邸',code: 3930)
+
