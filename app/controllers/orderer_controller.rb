@@ -3,15 +3,15 @@ class OrdererController < ApplicationController
   end
 
   def data
-    orders = Order.all
+    orderers = Orderer.all
     
     render :json => {
-      :total_count => orders.length,
+      :total_count => orderers.length,
       :pos => 0,
-      :rows => orders.map do |order|
+      :rows => orderers.map do |orderer|
         {
-          :id => order.id,
-          :data => [order.name,order.yomi]
+          :id => orderer.id,
+          :data => [orderer.name,orderer.yomi]
         }
       end
     }
@@ -26,18 +26,18 @@ class OrdererController < ApplicationController
     
     case @mode
     when "inserted"
-      order = order.create :name => name,:yomi => yomi
-      @tid = order.id
+      orderer = orderer.create :name => name,:yomi => yomi
+      @tid = orderer.id
       
     when "deleted"
-      order.find(@id).destroy
+      orderer.find(@id).destroy
       @tid = @id 
       
     when "updated"
-      order = Order.find(@id)
-      order.name = name
-      order.yomi = yomi
-	order.save
+      orderer = Order.find(@id)
+      orderer.name = name
+      orderer.yomi = yomi
+	orderer.save
       @tid = @id
     end
   end
